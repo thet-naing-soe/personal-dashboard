@@ -32,3 +32,11 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     `;
   })
   .catch((err) => console.error(err));
+function getCurrentTime() {
+  const now = new Date();
+  const formattedTime = now.toLocaleTimeString("en-us", {
+    timeStyle: "medium",
+  });
+  document.querySelector(".time").textContent = formattedTime;
+}
+setInterval(getCurrentTime, 1000);
