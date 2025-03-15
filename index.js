@@ -20,7 +20,6 @@ fetch("https://api.coingecko.com/api/v3/coins/dogecoin")
     return res.json();
   })
   .then((data) => {
-    console.log(data);
     document.getElementById("crypto-top").innerHTML = `
     <img src=${data.image.small} />
     <span>${data.name}</span>
@@ -40,3 +39,17 @@ function getCurrentTime() {
   document.querySelector(".time").textContent = formattedTime;
 }
 setInterval(getCurrentTime, 1000);
+
+navigator.geolocation.getCurrentPosition((position) => {
+  fetch(
+    `https://apis.scrimba.com/openweathermap/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial`
+  )
+    .then((res) => {
+      if (!res.ok) {
+        throw Error("Weather data is not available");
+      }
+      return res.json();
+    })
+    .then((data) => console.log(data))
+    .catch((err) => console.error(err));
+});
