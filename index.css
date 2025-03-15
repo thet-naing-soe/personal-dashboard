@@ -50,3 +50,26 @@ h1.time {
   gap: 10px;
   margin-bottom: 5px;
 }
+
+#weather {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-self: flex-start;
+}
+
+#weather > img {
+  width: 70px;
+}
+
+.weather-city {
+  width: 100%;
+  text-align: right;
+  margin: -10px 0 0 0;
+}
+
+.weather-temp {
+  font-size: 1.7rem;
+  margin: 0 0 0 -10px;
+}
